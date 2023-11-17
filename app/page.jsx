@@ -11,9 +11,9 @@ function DesktopIcon ({path, title}) {
 }
 
 export default async function Home() {
-  const { signal } = new AbortController()
-  const pages     = await client.fetch(`*[_type == "page"]{_id, slug, title}`, { signal })
-  const projects  = await client.fetch(`*[_type == "project"]{_id, slug, title}`, { signal })
+  //const { signal } = new AbortController()
+  const pages     = await client.fetch(`*[_type == "page"]{_id, slug, title}`)
+  const projects  = await client.fetch(`*[_type == "project"]{_id, slug, title}`)
 
   return (
    

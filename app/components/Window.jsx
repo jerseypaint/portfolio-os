@@ -8,36 +8,27 @@ import { Close, ArrowDown } from "./Icons"
 
 export const Window = ({children, title, path}) => {
     const [close, setClose]                     = useState(false)
-    const [message, setMessage]                 = useState(false)
+    //const [message, setMessage]                 = useState(false)
     const router                                = useRouter()
     const dock                                  = useContext(DockContext);
 
-
-    function onOpen() {
-        dock.items.forEach(element => {
-            
-        })
-    }
-
     function minimizeWindow() {
-        if (dock.items.length > 6) {
-            setMessage(`Too many docked windows to minimize. You'll need close one to minimize this window.`)
-        } else {
-            let found = false;
 
-            dock.items.forEach((item, index) => {
-                if (item.path === path) {
-                    found = true;
-                }
-            })
+        let found = false;
 
-            if (!found){
-                dock.setItems([...dock.items, {title: title, path: path}])
+        dock.items.forEach((item, index) => {
+            if (item.path === path) {
+                found = true;
             }
+        })
 
-            setClose(true)
-            router.push('/')
+        if (!found){
+            dock.setItems([...dock.items, {title: title, path: path}])
         }
+
+        setClose(true)
+        router.push('/')
+        
     }
 
     function closeWindow() {
@@ -66,7 +57,7 @@ export const Window = ({children, title, path}) => {
     return (
         <>
         {!close &&
-            <div className={`p-10 pb-6 absolute top-0 w-full h-full overflow-hidden max-h-[calc(100dvh-67px)]`}>
+            <div className={`p-2 pb-4 md:px-10 md:py-6 absolute top-0 w-full h-full overflow-hidden max-h-[calc(100dvh-67px)]`}>
                 <div className={`relative rounded border border-white h-full overflow-hidden shadow-glow shadow-sky-400/20`}>
                     <div className={`absolute top-0 left-0 w-full h-full backdrop-blur-sm dark:backdrop-blur bg-slate-50 bg-opacity-5`}></div>
                     <div className={`relative flex justify-between pt-2 pb-1 px-4 text-white border-b border-white`}>

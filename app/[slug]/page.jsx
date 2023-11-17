@@ -4,7 +4,7 @@ import { BodyContent } from "@/app/components/BodyContent"
 
 export default async function Page({params}) {
     const { slug } = params
-    const data = await client.fetch(`*[_type == "page" && slug.current == $slug][0]`, { slug: slug, cache: 'no-store' })
+    const data = await client.fetch(`*[_type == "page" && slug.current == $slug][0]`, { slug: slug })
     return(
         <Window title={data?.title} path={slug}>
             <div className={`container prose dark:prose-invert`}>

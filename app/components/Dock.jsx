@@ -7,17 +7,9 @@ import { Trash } from "./Icons"
 import { usePathname } from "next/navigation"
 
 export const Dock = ({}) => {
-    const [showDock, setShowDock]       = useState(true)
+    //const [showDock, setShowDock]       = useState(true)
     const dock                          = useContext(DockContext);
     const pathname                      = usePathname()
-
-    function openWindow(index) {
-        const path = dock.items[index].path
-        dock.items.splice(index, 1)
-        dock.setItems(dock.items)
-        router.push(`/${path}`)
-        router.refresh()
-    }
 
     function closeWindow(path) {
         const newItems = dock.items.filter(function(el) { return el.path != path; })

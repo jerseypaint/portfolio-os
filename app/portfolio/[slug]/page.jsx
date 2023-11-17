@@ -5,7 +5,7 @@ import { Checkmark } from "@/app/components/Icons"
 
 export default async function Project({ params }) {
     const { slug } = params
-    const data = await client.fetch(`*[_type == "project" && slug.current == $slug][0]`, { slug: slug, cache: `no-store` })
+    const data = await client.fetch(`*[_type == "project" && slug.current == $slug][0]`, { slug: slug })
     console.log(data)
     return(
         <Window title={data?.title} path={`/portfolio/${slug}`}>
