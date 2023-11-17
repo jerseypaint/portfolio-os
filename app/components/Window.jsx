@@ -12,6 +12,8 @@ export const Window = ({children, title, path}) => {
     const router                                = useRouter()
     const dock                                  = useContext(DockContext);
 
+    router.prefetch('/')
+
     function minimizeWindow() {
 
         let found = false;
@@ -27,7 +29,7 @@ export const Window = ({children, title, path}) => {
         }
 
         setClose(true)
-        router.push('/', undefined, { shallow: true })
+        router.push('/')
         
     }
 
@@ -44,7 +46,7 @@ export const Window = ({children, title, path}) => {
             }
         })
         setClose(true)
-        router.push('/', undefined, { shallow: true })
+        router.push('/')
     }
 
     useEffect(() => {
