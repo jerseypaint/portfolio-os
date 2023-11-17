@@ -27,7 +27,7 @@ export const Window = ({children, title, path}) => {
         }
 
         setClose(true)
-        router.push('/')
+        router.push('/', undefined, { shallow: true })
         
     }
 
