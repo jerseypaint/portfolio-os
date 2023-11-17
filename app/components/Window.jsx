@@ -12,8 +12,6 @@ export const Window = ({children, title, path}) => {
     const router                                = useRouter()
     const dock                                  = useContext(DockContext);
 
-    router.prefetch('/')
-
     function minimizeWindow() {
 
         let found = false;
